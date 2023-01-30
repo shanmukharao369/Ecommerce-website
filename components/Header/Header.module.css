@@ -1,0 +1,39 @@
+
+
+.background{
+    background-color:grey;
+    font-family: serif;
+    font-size: 100px;
+}
+
+.section{
+    margin-top: 50px;
+    text-align: center;
+}
+
+h2{
+    font-size: 40px;
+    font-family: cursive;
+    text-align: center;
+    font-weight: bold;
+}
+
+.button{
+    padding: 5px 10px 5px 10px;
+    color: #56CCF2;
+    font-weight: bold;
+    font-size: 25px;
+    /* border: 2px solid black; */
+    border-radius: 5px;
+    background-color:grey;
+    margin-bottom: 50px;
+    border: none;
+  }
+
+
+  
+.musicList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
