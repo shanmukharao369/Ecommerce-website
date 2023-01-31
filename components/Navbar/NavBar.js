@@ -1,5 +1,6 @@
 import React from "react";
-import { Container, Navbar, Button } from "react-bootstrap";
+import { Container, Navbar } from "react-bootstrap";
+import Cart from "../Header/Cart";
 
 const NavBar = () => {
   return (
@@ -9,7 +10,7 @@ const NavBar = () => {
         <Navbar.Brand href="#">STORE</Navbar.Brand>
         <Navbar.Brand href="#">ABOUT</Navbar.Brand>      
       </Container>
-      <Button className="justify-content-end me-4 btn btn-dark btn-outline-info text-white" >cart</Button>
+      <Cart></Cart>
     </Navbar>
   );
 };
