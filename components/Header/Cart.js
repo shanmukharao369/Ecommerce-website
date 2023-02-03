@@ -1,61 +1,42 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Button, Modal, ModalBody, Table } from "react-bootstrap";
-
-const cartElements = [
-  {
-    title: "Colors",
-
-    price: 100,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
-
-    quantity: 2,
-  },
-
-  {
-    title: "Black and white Colors",
-
-    price: 50,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%202.png",
-
-    quantity: 3,
-  },
-
-  {
-    title: "Yellow and Black Colors",
-
-    price: 70,
-
-    imageUrl: "https://prasadyash2411.github.io/ecom-website/img/Album%203.png",
-
-    quantity: 1,
-  },
-];
+import CartContext from "../store/cart-context";
 
 const Cart = () => {
-  const [cart, setCart] = useState(cartElements);
+  const cartCtx = useContext(CartContext);
+
   const [showItems, setShowItems] = useState(false);
+
+  let itemCount = 0;
+  cartCtx.cartItem.map((product) => {
+    itemCount += product.quantity;
+    return product;
+  });
 
   const ShowHandler = () => setShowItems(true);
   const CloseHandler = () => setShowItems(false);
 
-
   return (
     <>
       <Button
-        className="justify-content-end me-4 btn btn-dark btn-outline-info text-white"
+        className="justify-content-end me-2 btn btn-dark btn-outline-info text-white"
         style={{ fontFamily: "Serif" }}
-        onClick={ShowHandler} 
+        onClick={ShowHandler}
       >
         Cart
       </Button>
-      <Modal show={showItems} onHide={CloseHandler} >
+      <span
+        className="text-info me-2 font-weight-bold"
+        style={{ fontSize: "larger" }}
+      >
+        {itemCount}
+      </span>
+      <Modal show={showItems} onHide={CloseHandler}>
         <Modal.Header closeButton>
-          <Modal.Title  style={{fontFamily:"serif",position: 'center'}}>CART</Modal.Title>
+          <Modal.Title style={{ fontFamily: "serif" }}>CART</Modal.Title>
         </Modal.Header>
         <ModalBody>
-          <Table className='align-middle' >
+          <Table className="align-middle">
             <thead>
               <tr>
                 <th>ITEM</th>
@@ -64,18 +45,18 @@ const Cart = () => {
               </tr>
             </thead>
             <tbody>
-              {cart.map((product, index) => (
+              {cartCtx.cartItem.map((product, index) => (
                 <tr key={index}>
                   <td>
                     <img
                       src={product.imageUrl}
                       alt={product.title}
-                      style={{ width: "70px",marginRight: "20px" }}
+                      style={{ width: "75px", marginRight: "20px" }}
                     />
                     {product.title}
                   </td>
                   <td>Rs.{product.price}</td>
-                  <td >
+                  <td>
                     <span style={{ marginRight: "20px" }}>
                       {product.quantity}
                     </span>
@@ -85,6 +66,7 @@ const Cart = () => {
               ))}
             </tbody>
           </Table>
+          <Button className="btn-info">PURCHASE</Button>
         </ModalBody>
       </Modal>
     </>

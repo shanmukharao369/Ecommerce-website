@@ -4,6 +4,7 @@ import classes from "./Header.module.css";
 import Products from "./Products.js";
 
 
+
 const productsArr = [
   {
     title: "Colors",
