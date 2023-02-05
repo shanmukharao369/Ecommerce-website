@@ -5,6 +5,7 @@ import Footer from "./components/footer/Footer";
 import CartContext from "./components/store/cart-context";
 import About from "./components/pages/About";
 import { Route, Switch } from "react-router-dom";
+import { Home } from "./components/pages/Home";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
@@ -12,14 +13,17 @@ function App() {
   return (
     <Switch>
       <CartContext.Provider value={{ cartItem, setCartItem }}>
-        <NavBar/>
+        <NavBar />
         <Route exact path="/Store">
-          <Header/>
+          <Header />
+        </Route>
+        <Route exact path="/Home">
+          <Home />
         </Route>
         <Route exact path="/About">
           <About />
         </Route>
-        <Footer/>
+        <Footer />
       </CartContext.Provider>
     </Switch>
   );
