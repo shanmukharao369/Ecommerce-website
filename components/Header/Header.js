@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+// import { Card } from "react-bootstrap";
 import classes from "./Header.module.css";
 import Products from "./Products.js";
 
@@ -40,25 +40,22 @@ const productsArr = [
 ];
 
 const Header = () => {
-  const Product = productsArr.map((Product) => (
+  const Product = productsArr.map((Product,index) => (
     <Products
       title={Product.title}
       price={Product.price}
       imageUrl={Product.imageUrl}
+      key={index}
     />
   ));
 
   return (
-    <div>
-      <Card className="text-center text-white mt-1">
-        <Card.Body class={classes.background}>The Generics</Card.Body>
-      </Card>
+
       <section className={classes.section}>
         <h2>Music</h2>
         <span style={{marginTop:"3rem"}} className={classes.musicList}>{Product}</span>
         <button className={classes.button}>See The Cart</button>
       </section>
-    </div>
   );
 };
 
