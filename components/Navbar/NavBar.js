@@ -14,7 +14,7 @@ const NavBar = () => {
           className="border border-white"
         >
           <Container
-            className="justify-content-center me-7 "
+            className="justify-content-center"
             style={{ fontFamily: "Serif", fontSize: "20px" }}
           >
             <NavLink
@@ -39,9 +39,15 @@ const NavBar = () => {
             </NavLink>
             <NavLink
               to="/About"
-              style={{ textDecoration: "inherit", color: "white" }}
+              style={{ textDecoration: "inherit", color: "white",marginRight:"20px" }}
             >
               ABOUT
+            </NavLink>
+            <NavLink
+              to="/Contactus"
+              style={{ textDecoration: "inherit", color: "white",marginRight:"20px" }}
+            >
+              CONTACT-US
             </NavLink>
           </Container>
           <Cart></Cart>

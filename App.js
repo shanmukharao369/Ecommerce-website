@@ -4,6 +4,7 @@ import Header from "./components/Header/Header";
 import Footer from "./components/footer/Footer";
 import CartContext from "./components/store/cart-context";
 import About from "./components/pages/About";
+import ContactUs from "./components/pages/ContactUs";
 import { Route, Switch } from "react-router-dom";
 import { Home } from "./components/pages/Home";
 
@@ -22,6 +23,9 @@ function App() {
         </Route>
         <Route exact path="/About">
           <About />
+        </Route>
+        <Route exact path="/Contactus">
+          <ContactUs></ContactUs>
         </Route>
         <Footer />
       </CartContext.Provider>
