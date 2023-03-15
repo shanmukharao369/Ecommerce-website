@@ -5,6 +5,7 @@ import Products from "./Products.js";
 
 
 
+
 const productsArr = [
   {
     title: "Colors",
@@ -40,7 +41,7 @@ const productsArr = [
 ];
 
 const Header = () => {
-  const Product = productsArr.map((Product,index) => (
+  const Product = productsArr.map((Product,index) => (   
     <Products
       title={Product.title}
       price={Product.price}

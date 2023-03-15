@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import classes from "./Products.module.css";
 import { Button } from "react-bootstrap";
 import CartContext from "../store/cart-context";
+import { Link } from "react-router-dom";
 
 
 
@@ -42,7 +43,9 @@ const Products = (props) => {
   return (
     <div className={classes.div}>
       <h2>{props.title}</h2>
-      <img src={props.imageUrl} alt={props.title} />
+      <Link to="/productpage">
+        <img src={props.imageUrl} alt={props.title} />
+      </Link>
       <span>
         <p>Price: Rs.{props.price}</p>
         <Button className="btn-info text-white" onClick={() => cartHandler(props.title, props.imageUrl, props.price)}>ADD TO CART</Button>

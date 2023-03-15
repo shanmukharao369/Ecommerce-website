@@ -5,8 +5,9 @@ import Footer from "./components/footer/Footer";
 import CartContext from "./components/store/cart-context";
 import About from "./components/pages/About";
 import ContactUs from "./components/pages/ContactUs";
-import { Route, Switch } from "react-router-dom";
+import { Redirect, Route, Switch } from "react-router-dom";
 import { Home } from "./components/pages/Home";
+import ProductDetail from "./components/pages/ProductsPage";
 
 function App() {
   const [cartItem, setCartItem] = useState([]);
@@ -15,6 +16,9 @@ function App() {
     <Switch>
       <CartContext.Provider value={{ cartItem, setCartItem }}>
         <NavBar />
+        <Route path='/'>
+        <Redirect to='/Home'/>
+        </Route>
         <Route exact path="/Store">
           <Header />
         </Route>
@@ -25,8 +29,9 @@ function App() {
           <About />
         </Route>
         <Route exact path="/Contactus">
-          <ContactUs></ContactUs>
+          <ContactUs />
         </Route>
+        <Route exact path="/productpage"><ProductDetail /></Route>
         <Footer />
       </CartContext.Provider>
     </Switch>
