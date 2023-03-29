@@ -44,8 +44,14 @@ const NavBar = () => {
               ABOUT
             </NavLink>
             <NavLink
+            to="/login"
+            style={{textDecoration: "inherit", color: "white",marginRight:"20px" }}
+          >
+            LOGIN
+          </NavLink>
+            <NavLink
               to="/Contactus"
-              style={{ textDecoration: "inherit", color: "white",marginRight:"20px" }}
+              style={{ textDecoration: "inherit", color: "white" }}
             >
               CONTACT-US
             </NavLink>

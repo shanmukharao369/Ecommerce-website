@@ -16,6 +16,25 @@ const Cart = () => {
   const ShowHandler = () => setShowItems(true);
   const CloseHandler = () => setShowItems(false);
 
+  const removeHandler = (product) => {
+    const updatedCart = [...cartCtx.cartItem];
+    const itemIndex = updatedCart.findIndex((item) => item.title === product.title);
+    if (updatedCart[itemIndex].quantity === 1) {
+      updatedCart.splice(itemIndex, 1);
+    } else {
+      updatedCart[itemIndex].quantity -= 1;
+    }
+
+  cartCtx.setCartItem(updatedCart);
+};
+
+
+const purchaseHandler = () => {
+  alert("Purchase successful!");
+  cartCtx.setCartItem([]);
+};
+
+
   return (
     <>
       <Button
@@ -60,13 +79,22 @@ const Cart = () => {
                     <span style={{ marginRight: "20px" }}>
                       {product.quantity}
                     </span>
-                    <Button className="btn-danger">Remove</Button>
+                    <Button className="btn-danger" onClick={() => removeHandler(product)}>Remove</Button>
                   </td>
                 </tr>
               ))}
             </tbody>
+            <tfoot>
+              <tr>
+                <td></td>
+                <td></td>
+                <td className="text-end"><h4>Total:</h4></td>
+              </tr>
+            </tfoot>
           </Table>
-          <Button className="btn-info">PURCHASE</Button>
+          <div className="d-flex justify-content-center">
+          <Button className="btn-info" onClick={purchaseHandler}>PURCHASE</Button>
+          </div>
         </ModalBody>
       </Modal>
     </>
