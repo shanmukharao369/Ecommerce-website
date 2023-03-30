@@ -27,7 +27,7 @@ export const Home = () => {
         <Table className="border d-flex align-items-center justify-content-center">
           <tbody>
             {tours.map((tour) => (
-              <tr>
+              <tr key={tour.date}>
                 <td>{tour.date}</td>
                 <td>{tour.city}</td>
                 <td>{tour.venue}</td>

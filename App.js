@@ -3,7 +3,7 @@ import NavBar from "./components/Navbar/NavBar";
 import Header from "./components/Header/Header";
 import Footer from "./components/footer/Footer";
 import CartContext from "./components/store/cart-context";
-import {AuthContext} from "./components/store/AuthContext";
+import { AuthContext } from "./components/store/AuthContext";
 import About from "./components/pages/About";
 import ContactUs from "./components/pages/ContactUs";
 import { Redirect, Route, Switch } from "react-router-dom";
@@ -19,6 +19,7 @@ function App() {
 
   const loginHandler = (token) => {
     setToken(token);
+    localStorage.setItem("token", token);
   };
 
   const contextValue = {
@@ -32,11 +33,11 @@ function App() {
       <AuthContext.Provider value={contextValue}>
         <CartContext.Provider value={{ cartItem, setCartItem }}>
           <NavBar />
-          <Route path="/">
-            <Redirect to="/Home" />
+          <Route path="*">
+            <Redirect to="/login" />
           </Route>
           <Route exact path="/Store">
-            <Header />
+          {userIsLoggedIn ? <Header /> : <Redirect to="/login" />}
           </Route>
           <Route exact path="/Home">
             <Home />
@@ -51,7 +52,7 @@ function App() {
             <ContactUs />
           </Route>
           <Route exact path="/productpage">
-            <ProductDetail />
+          {userIsLoggedIn ? <ProductDetail /> : <Redirect to="/login" />}
           </Route>
           <Footer />
         </CartContext.Provider>

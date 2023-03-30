@@ -41,7 +41,6 @@ export const Login = () => {
       })
       .then((data) => {
         cartCtx.login(data.idToken);
-        console.log(data);
         history.replace("/store");
       })
       .catch((err) => {
@@ -55,7 +54,7 @@ export const Login = () => {
       <Card.Body>
         <Card.Title className="text-center mb-4">Login</Card.Title>
         <Form>
-          <Form.Group controlId="formBasicEmail">
+          <Form.Group>
             <Form.Label>Email</Form.Label>
             <Form.Control
               name="email"
@@ -66,7 +65,7 @@ export const Login = () => {
               ref={emailInputRef}
             />
           </Form.Group>
-          <Form.Group controlId="formBasicPassword">
+          <Form.Group>
             <Form.Label>Password</Form.Label>
             <Form.Control
               name="password"
