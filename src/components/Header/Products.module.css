@@ -1,0 +1,46 @@
+.div {
+    /* border: 2px solid black; */
+    flex-basis: 40%;
+    margin-bottom: 50px;
+}
+
+.div img{
+    display: flex;
+    margin: auto;
+    margin-bottom: 60px;
+    transform-origin: center center;
+    object-fit: cover;
+}
+
+.div img:hover{
+    transform: scale(1.1);
+    transition: transform 0.3s;
+  }
+
+.div h2 {
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 20px;
+}
+
+.div span {
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 100px;
+}
+
+.div Button {
+    display: inline;
+    float: right;
+    margin-right: 70px;
+    padding: 5px 10px 5px 10px;
+    margin-bottom: 30px;
+    font-weight: bold;
+    font-size: 20px;
+    /* background-color: #56CCF2; */
+    border: none;
+    border-radius: 5px;
+    /* color: white; */
+    margin-top: -10px;
+}

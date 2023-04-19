@@ -1,0 +1,26 @@
+.productGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .productItem {
+    margin: 1rem;
+    text-align: center;
+    width: 45%;
+  }
+  
+  .productItem img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+  }
+
+  .productItem ul {
+    margin-top: 1rem;
+    padding-left: 0;
+    list-style:none;
+    font-size: 1rem;
+
+  }
